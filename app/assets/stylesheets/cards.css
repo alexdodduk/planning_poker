@@ -1,6 +1,6 @@
 .card {
-    width: 53px;
-    height: 71px;
+    width: 106px;
+    height: 142px;
     border: 2px solid black;
     border-radius: 5px;
     display: flex;
@@ -12,7 +12,7 @@
       &.voted {
          background: white;
          background-image: url(card-backface.png);
-         background-size: 40px;
+         background-size: 80px;
          background-repeat: no-repeat;
          background-position: center;
        }
@@ -20,7 +20,7 @@
 
     &.revealed {
        background: white;
-       background-size: 45px;
+       background-size: 90px;
        background-repeat: no-repeat;
        background-position: center;
        transform: rotate3d(0,1,0,270deg);
@@ -46,17 +46,21 @@
          background-image: url(card-face-spades.png);
        }
     }
+
+    p {
+      font-size: 1.5rem;
+    }
 }
 
 #players .card-backface {
   content: '';
   background: white;
   background-image: url(card-backface.png);
-  background-size: 40px;
+  background-size: 80px;
   background-repeat: no-repeat;
   background-position: center;
-  width: 53px;
-  height: 71px;
+  width: 106px;
+  height: 142px;
   border: 2px solid black;
   border-radius: 5px;
   box-sizing: border-box;
