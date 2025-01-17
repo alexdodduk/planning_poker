@@ -1,0 +1,18 @@
+<%= turbo_stream_from "room_players" %>
+
+<% if room.players.empty? %>
+  <p id="loading">
+    <%= 'Waiting for players to join' %>
+    <span>.</span>
+    <span>.</span>
+    <span>.</span>
+  </p>
+<% end %>
+
+<ul id="players">
+  <% room.players.each do |player| %>
+    <%= render 'players/list_item_player', player: %>
+  <% end %>
+</ul>
+
+

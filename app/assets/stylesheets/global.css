@@ -1,0 +1,67 @@
+:root {
+  font-size: 24px;
+}
+
+body {
+  background: #156064;
+  background-image: url(bg.png);
+  text-align: center;
+  margin: 0;
+  padding: 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#notice {
+  color: white;
+  animation: fade-out 4s forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+button, input, label {
+    &:hover, &:focus-visible {
+        cursor: pointer;
+    }
+}
+
+button, input[type="submit"] {
+  width: 150px;
+  background: white;
+  border: 1px solid rgb(16, 66, 66);
+  border-radius: 4px;
+  padding: 8px;
+
+  &:hover, &:focus-visible {
+    background: rgb(220,220,220);
+    cursor: pointer;
+  }
+
+  &.danger {
+    border-color: red;
+
+    &:hover, &:focus-visible {
+      background: rgb(255,220,220);
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+
+    &:hover, &:focus-visible {
+      background: white;
+      cursor: not-allowed;
+    }
+  }
+}

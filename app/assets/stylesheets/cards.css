@@ -1,0 +1,190 @@
+.card {
+    width: 53px;
+    height: 71px;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    &.hidden {
+      &.voted {
+         background: white;
+         background-image: url(card-backface.png);
+         background-size: 40px;
+         background-repeat: no-repeat;
+         background-position: center;
+       }
+    }
+
+    &.revealed {
+       background: white;
+       background-size: 45px;
+       background-repeat: no-repeat;
+       background-position: center;
+       transform: rotate3d(0,1,0,270deg);
+       animation: card-reveal 200ms linear forwards 200ms;
+
+       &.clubs {
+         color: black;
+         background-image: url(card-face-clubs.png);
+       }
+
+       &.diamonds {
+         color: red;
+         background-image: url(card-face-diamonds.png);
+       }
+
+       &.hearts {
+         color: red;
+         background-image: url(card-face-hearts.png);
+       }
+
+       &.spades {
+         color: black;
+         background-image: url(card-face-spades.png);
+       }
+    }
+}
+
+#players .card-backface {
+  content: '';
+  background: white;
+  background-image: url(card-backface.png);
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 53px;
+  height: 71px;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: absolute;
+  animation: card-hide 200ms forwards;
+}
+
+input[type=checkbox] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: lightgray;
+    border: 1px solid transparent;
+
+    &:checked {
+        position: relative;
+
+        &::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: rgb(7, 33, 33);
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            border-radius: 3px;
+         }
+    }
+}
+
+form:has(input[type=checkbox]:checked) {
+    #cards {
+        opacity: 0.5;
+
+        &:hover {
+            cursor: not-allowed;
+        }
+
+         input, label {
+             cursor: not-allowed;
+             pointer-events: none;
+         }
+    }
+}
+
+label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label:hover::before {
+  content: attr(data-info);
+  background: blue;
+  padding: 1rem;
+  position: absolute;
+  bottom: 4rem;
+  color: rgb(238, 251, 251);
+  font-size: 0.6rem;
+  width: 200px;
+  border-radius: 0.4rem;
+  background: rgb(126, 155, 155);
+  border: 2px solid rgb(7, 33, 33);
+  z-index: 1;
+}
+
+input[type=radio] {
+    appearance: none;
+
+    &+label {
+        display: block;
+        background: white;
+       background-size: 45px;
+       background-repeat: no-repeat;
+       background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 100ms ease-out;
+
+        &.clubs {
+           color: black;
+           background-image: url(card-face-clubs.png);
+         }
+
+        &.diamonds {
+           color: red;
+           background-image: url(card-face-diamonds.png);
+         }
+
+        &.hearts {
+           color: red;
+           background-image: url(card-face-hearts.png);
+         }
+
+        &.spades {
+           color: black;
+           background-image: url(card-face-spades.png);
+         }
+    }
+
+    &:checked + label {
+         transform: translateY(-1rem) scale(1.2);
+    }
+}
+
+#cards {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  position: relative;
+}
+
+@keyframes card-hide {
+  from {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  to {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+}
+
+@keyframes card-reveal {
+  from {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+  to {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+}

@@ -1,0 +1,55 @@
+#host-panel {
+  background: rgb(238, 251, 251);
+  width: 30rem;
+  height: 14rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  color: rgb(16, 66, 66);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &::before {
+     content: '';
+     background: rgb(7, 33, 33);
+     width: 30.4rem;
+     height: 14.6rem;
+     border-radius: 1.2rem;
+     display: block;
+     position: absolute;
+     z-index: -1;
+     top: -0.2rem;
+     left: -0.2rem;
+   }
+
+   h4 {
+     margin: 0 0 1rem;
+     font-weight: normal;
+     font-size: 1rem;
+     color: rgb(7, 33, 33);
+   }
+}
+
+#invitation-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  margin-bottom: 2rem;
+  color: rgb(126, 155, 155);
+}
+
+#host-panel-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#revealed-state-buttons {
+  display: flex;
+  gap: 1rem;
+}

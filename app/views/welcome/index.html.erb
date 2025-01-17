@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Welcome!</h1>
+<p>To get started, create a new room.</p>
+<p>You will be the host of this room, and so will not be able to vote.</p>
+<p>Once you are happy everyone has finished voting, you can reveal the scores.</p>
+<p>To vote again, you can reset the room and repeat!</p>
+
+<h3>Let's get started!</h3>
+
+
+<%= form_with model: Room.new do |form| %>
+  <%= form.submit 'Create a room' %>
+<% end %>

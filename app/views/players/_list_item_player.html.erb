@@ -1,0 +1,11 @@
+<li id="<%= dom_id player %>">
+  <% if player.room.revealed %>
+    <%= render 'players/revealed_player', player: %>
+  <% else %>
+    <%= render 'players/hidden_player', player: %>
+  <% end %>
+
+  <p>
+    <%= player.name %>
+  </p>
+</li>

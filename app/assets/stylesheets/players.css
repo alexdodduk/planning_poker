@@ -1,0 +1,93 @@
+#loading span {
+  animation: load 2s infinite;
+
+  &:nth-of-type(1) {
+    animation-delay: 0ms;
+  }
+
+  &:nth-of-type(2) {
+    animation-delay: 500ms;
+  }
+
+  &:nth-of-type(3) {
+    animation-delay: 1000ms;
+  }
+}
+
+@keyframes load {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1
+  }
+}
+
+#players {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+#player_form {
+  background: rgb(238, 251, 251);
+
+  width: 30rem;
+  height: 18rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  color: rgb(16, 66, 66);
+
+&:before {
+   content: '';
+   background: rgb(7, 33, 33);
+   width: 30.4rem;
+   height: 18.6rem;
+   border-radius: 1.2rem;
+   display: block;
+   position: absolute;
+   z-index: -1;
+   top: -0.2rem;
+   left: -0.2rem;
+ }
+  fieldset {
+    border: 2px solid rgb(7, 33, 33);
+    border-radius: 0.25rem;
+    padding-bottom: 2rem;
+
+    input[type=text] {
+      height: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type=checkbox] {
+      margin-bottom: 1rem;
+      border: 2px solid rgb(7, 33, 33);
+      border-radius: 0.25rem;
+      background: rgb(238, 251, 251);
+    }
+
+    legend {
+      background: rgb(7, 33, 33);
+      border-radius: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      color: rgb(238, 251, 251)
+    }
+
+    &.disabled {
+       cursor: not-allowed;
+      opacity: 0.5;
+
+      input, label:hover {
+        cursor: not-allowed;
+        pointer-events: none;
+       }
+    }
+  }
+}

@@ -10,5 +10,15 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "welcome#index"
+
+  resources :players, only: [:create, :show, :update, :destroy]
+  resources :rooms, only: [:show, :create, :destroy] do
+    member do
+      post :reveal
+      post :reset
+    end
+  end
+
+  get "game_over" => "rooms#game_ended", as: :game_over
 end
