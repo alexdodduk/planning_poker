@@ -12,7 +12,7 @@
 
     <div id="invitation-prompt">
       <p>Invite others to join by sharing the room URL</p>
-      <%= button_tag "Copy URL", data: { controller: :hello, action: 'click->hello#greet' } %>
+      <%= button_tag "Copy URL", data: { controller: :clipboard, action: 'click->clipboard#copy' } %>
     </div>
 
     <div id="host-panel-buttons">
