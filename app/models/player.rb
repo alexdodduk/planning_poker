@@ -8,10 +8,6 @@ class Player < ApplicationRecord
   after_destroy_commit -> { broadcast_remove_to "room", target: "player_#{id}" }
 
   def voted?
-    score || (abstained?)
-  end
-
-  def abstained?
-    abstain == 1 || abstain == "1"
+    score || abstain?
   end
 end
