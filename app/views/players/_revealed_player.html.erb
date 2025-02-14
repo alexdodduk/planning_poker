@@ -1,7 +1,7 @@
 <div class="card-backface"></div>
 <div class="card revealed <%= random_suit %>">
   <p>
-    <% if player.abstained? %>
+    <% if player.abstain? %>
       <p>?  </p>
     <% else %>
       <%= player.score || 'N/A' %>

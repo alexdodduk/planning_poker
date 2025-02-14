@@ -18,7 +18,7 @@
   <fieldset class="<%= player.id && player.room.revealed? ? 'disabled' : '' %>">
     <% if player.id %>
       <legend>
-        Score
+        Score (<%= player.name %>)
       </legend>
 
       <div id="cards">
@@ -39,10 +39,10 @@
       </div>
 
       <p>or</p>
-      <div>
+      <field class="abstain">
         <%= form.label :abstain, data: { info: "You can opt out of voting at any time" } %>
         <%= form.check_box :abstain, disabled: player.room.revealed? %>
-      </div>
+      </field>
     <% else %>
       <legend>
         Name
