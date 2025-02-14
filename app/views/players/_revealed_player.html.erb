@@ -1,11 +1,16 @@
-<div class="card-backface"></div>
-<div class="card revealed <%= random_suit %>">
-  <p>
-    <% if player.abstain? %>
-      <p>?  </p>
-    <% else %>
-      <%= player.score || 'N/A' %>
-    <% end %>
-  </p>
-</div>
+<% if player.abstain? || player.score %>
+  <div class="card-backface"></div>
+  <div class="card revealed <%= random_suit %>">
+    <p>
+      <% if player.abstain? %>
+        ?
+      <% else %>
+        <%= player.score %>
+      <% end %>
+    </p>
+  </div>
+<% else %>
+  <div class='card hidden'></div>
+<% end %>
+
 
