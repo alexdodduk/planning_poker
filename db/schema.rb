@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_17_140939) do
-# Could not dump table "players" because of following StandardError
-#   Unknown type 'bool' for column 'abstain'
-
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+ActiveRecord::Schema[8.0].define(version: 2024_08_30_104335) do
+  create_table "players", force: :cascade do |t|
+    t.integer "room_id", null: false
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "name", null: false
+    t.boolean "abstain", default: false, null: false
+    t.index ["room_id"], name: "index_players_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|

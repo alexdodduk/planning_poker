@@ -4,7 +4,8 @@ class RoomsController < ApplicationController
   # GET /rooms/1 or /rooms/1.json
   def show
     @host = session[:host] == @room.id
-    @player = Player.find_by(id: session[:player_id])
+    player = Player.find_by(id: session[:player_id])
+    @player = player if player&.room_id == @room.id
   end
 
   # POST /rooms or /rooms.json
