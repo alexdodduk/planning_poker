@@ -15,33 +15,33 @@
     <%= form.hidden_field :room_id %>
   </div>
 
-  <fieldset class="<%= player.id && player.room.revealed? ? 'disabled' : '' %>">
+  <fieldset>
     <% if player.id %>
       <legend>
         Score (<%= player.name %>)
       </legend>
 
       <div id="cards">
-        <%= form.radio_button(:score, 1, disabled: player.room.revealed?) %>
+        <%= form.radio_button(:score, 1) %>
         <%= form.label(:score_1, "1", class: "card #{random_suit}", data: { info: "Very simple story (ex. copy change, patch change)" }) %>
-        <%= form.radio_button(:score, 2, disabled: player.room.revealed?) %>
+        <%= form.radio_button(:score, 2) %>
         <%= form.label(:score_2, "2", class: "card #{random_suit}", data: { info: "Simple story" }) %>
-        <%= form.radio_button(:score, 3, disabled: player.room.revealed?) %>
+        <%= form.radio_button(:score, 3) %>
         <%= form.label(:score_3, "3", class: "card #{random_suit}", data: { info: "Story has a few different pieces, but there are no unknowns" }) %>
-        <%= form.radio_button(:score, 5, disabled: player.room.revealed?) %>
+        <%= form.radio_button(:score, 5) %>
         <%= form.label(:score_5, "5", class: "card #{random_suit}", data: { info: "May have some unknowns, which increase the risk" }) %>
-        <%= form.radio_button(:score, 8, disabled: player.room.revealed?) %>
+        <%= form.radio_button(:score, 8) %>
         <%= form.label(:score_8, "8", class: "card #{random_suit}", data: { info: "Larger story. More effort, complexity and risk. Potentially something which will need more testing/review before releasing" }) %>
-        <%= form.radio_button(:score, 13, disabled: player.room.revealed?) %>
+        <%= form.radio_button(:score, 13) %>
         <%= form.label(:score_13, "13", class: "card #{random_suit}", data: { info: "Very large story. Suitable for new features we want to develop that we need to research into" }) %>
-        <%= form.radio_button(:score, 21, disabled: player.room.revealed?) %>
+        <%= form.radio_button(:score, 21) %>
         <%= form.label(:score_21, "21", class: "card #{random_suit}", data: { info: "Super large" }) %>
       </div>
 
       <p>or</p>
       <field class="abstain">
         <%= form.label :abstain, data: { info: "You can opt out of voting at any time" } %>
-        <%= form.check_box :abstain, disabled: player.room.revealed?, data: { controller: :abstain, action: 'click->abstain#onChange' } %>
+        <%= form.check_box :abstain, data: { controller: :abstain, action: 'click->abstain#onChange' } %>
       </field>
     <% else %>
       <legend>

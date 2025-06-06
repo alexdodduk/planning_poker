@@ -35,7 +35,7 @@
   background: rgb(238, 251, 251);
 
   width: 30rem;
-  height: 18rem;
+  height: 16rem;
   border-radius: 1rem;
   padding: 1rem 2rem;
   margin-bottom: 3rem;
@@ -48,7 +48,7 @@
    content: '';
    background: rgb(7, 33, 33);
    width: 30.4rem;
-   height: 18.6rem;
+   height: 16.9rem;
    border-radius: 1.2rem;
    display: block;
    position: absolute;
@@ -59,7 +59,7 @@
   fieldset {
     border: 2px solid rgb(7, 33, 33);
     border-radius: 0.25rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 
     input[type=text] {
       height: 1rem;
@@ -79,15 +79,18 @@
       padding: 0.25rem 0.5rem;
       color: rgb(238, 251, 251)
     }
+  }
+}
 
-    &.disabled {
-       cursor: not-allowed;
-      opacity: 0.5;
+.revealed + #player_form {
+  cursor: not-allowed;
 
-      input, label:hover {
-        cursor: not-allowed;
-        pointer-events: none;
-       }
-    }
+  input, label, label:hover {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  fieldset {
+    opacity: 0.5;
   }
 }
