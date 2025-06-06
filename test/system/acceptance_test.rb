@@ -101,7 +101,6 @@ class AcceptanceTest < ApplicationSystemTestCase
 
       # Cast a vote
       find("label[for='player_score_1']").click
-      click_on "Set score"
     end
 
     # Host reveals votes

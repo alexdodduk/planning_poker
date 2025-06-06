@@ -1,4 +1,4 @@
-<%= form_with(model: player, id: "player_form") do |form| %>
+<%= form_with(model: player, id: "player_form", data: { controller: 'auto-submit' }) do |form| %>
   <% if player.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
@@ -41,7 +41,7 @@
       <p>or</p>
       <field class="abstain">
         <%= form.label :abstain, data: { info: "You can opt out of voting at any time" } %>
-        <%= form.check_box :abstain, disabled: player.room.revealed? %>
+        <%= form.check_box :abstain, disabled: player.room.revealed?, data: { controller: :abstain, action: 'click->abstain#onChange' } %>
       </field>
     <% else %>
       <legend>
@@ -57,7 +57,7 @@
 
     <div>
       <% submit_text = player.id ? "Set score" : "Join room" %>
-      <%= form.submit submit_text, disabled: player.id && player.room.revealed? %>
+      <%= form.submit submit_text, { hidden: player.id } %>
     </div>
   </fieldset>
 <% end %>
