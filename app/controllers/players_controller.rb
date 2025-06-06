@@ -48,7 +48,7 @@ class PlayersController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
   def set_player
     @player = Player.find(params[:id])
   end
@@ -57,7 +57,7 @@ class PlayersController < ApplicationController
     params.require(:player).permit(:room_id, :name)
   end
 
-    # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through.
   def player_params
     params.require(:player).permit(:room_id, :score, :name, :abstain)
   end

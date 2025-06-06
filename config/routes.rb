@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "welcome#index"
 
-  resources :players, only: [:create, :show, :update, :destroy]
-  resources :rooms, only: [:show, :create, :destroy] do
+  resources :players, only: [ :create, :show, :update, :destroy ]
+  resources :rooms, only: [ :show, :create, :destroy ] do
     member do
       post :reveal
       post :reset
