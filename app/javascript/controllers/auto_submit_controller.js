@@ -23,7 +23,7 @@ export default class extends Controller {
       }
     }
 
-    form.querySelectorAll('input').forEach( (input) => {
+    form.querySelectorAll('input:not(#player_name)').forEach( (input) => {
       input.addEventListener('change', (e) => {
         sendData()
       })
