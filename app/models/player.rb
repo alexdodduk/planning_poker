@@ -1,4 +1,6 @@
 class Player < ApplicationRecord
+  attribute :abstain, :boolean
+
   belongs_to :room
 
   before_update :reset_score
@@ -10,7 +12,7 @@ class Player < ApplicationRecord
   after_destroy_commit -> { broadcast_remove_to "room", target: "player_#{id}" }
 
   def voted?
-    score || abstain?
+    score.present? || abstain?
   end
 
   private
