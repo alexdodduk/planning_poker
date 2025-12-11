@@ -40,4 +40,6 @@ jobs:
         env:
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-        run: kamal deploy
+        run: |
+          cp .kamal/secrets-ci .kamal/secrets
+          kamal deploy
