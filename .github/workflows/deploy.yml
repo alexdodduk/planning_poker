@@ -38,7 +38,9 @@ jobs:
 
       - name: Deploy with Kamal
         env:
-          KAMAL_REGISTRY_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          KAMAL_REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run:
+          rm .kamal/secrets
+          mv .kamal/secrets-ci .kamal/secrets
           kamal deploy
