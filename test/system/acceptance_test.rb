@@ -100,12 +100,12 @@ class AcceptanceTest < ApplicationSystemTestCase
       assert_text "Score (Alice)"
 
       # Cast a vote
-      find("label[for='player_score_1']").click
+      find("label[for='player_score_8']").click
     end
 
     # Host reveals votes
     click_on "Reveal"
-    assert_selector ".card.revealed", text: "1"
+    assert_selector ".card.revealed", text: "8"
 
     # Host resets votes
     click_on "Reset"
