@@ -24,7 +24,9 @@ export default class extends Controller {
     // add to change event listener to all inputs except player_name text field
     form.querySelectorAll('input:not(#player_name)').forEach( (input) => {
       input.addEventListener('change', (e) => {
-        autoSubmit() // todo: handle the async submission
+        autoSubmit().catch(error => {
+          console.error('Auto-submit failed:', error);
+        })
       })
     })
   }
