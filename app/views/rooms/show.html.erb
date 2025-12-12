@@ -7,23 +7,7 @@
 
   <%= button_to "Leave game", @player, method: :delete %>
 <% elsif @host %>
-  <div id="host-panel">
-    <h4>Host controls</h4>
-
-    <div id="invitation-prompt">
-      <p>Invite others to join by sharing the room URL</p>
-      <%= button_tag "Copy URL", data: { controller: :clipboard, action: 'click->clipboard#copy' } %>
-    </div>
-
-    <div id="host-panel-buttons">
-      <div id="revealed-state-buttons">
-        <%= button_to "Reveal", reveal_room_path(@room), disabled: @room.revealed? %>
-        <%= button_to "Reset", reset_room_path(@room), disabled: !@room.revealed? %>
-      </div>
-
-      <%= button_to "End game", @room, class: :danger, method: :delete %>
-    </div>
-  </div>
+  <%= render 'host_panel' %>
 <% else %>
   <%= render 'players/form', player: Player.new(room: @room) %>
 <% end %>
