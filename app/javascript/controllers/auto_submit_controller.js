@@ -5,17 +5,15 @@ export default class extends Controller {
   connect() {
     const form = document.querySelector("#player_form");
 
-    async function sendData() {
-      // Associate the FormData object with the form element
+    async function autoSubmit() {
       const formData = new FormData(form);
 
       try {
         const response = await fetch(form.action, {
           method: "POST",
-          // Set the FormData instance as the request body
           body: formData,
           headers: {
-            "Accept": "text/vnd.turbo-stream.html"
+            "Accept": "text/vnd.turbo-stream.html" // Expecting a Turbo Stream response
           }
         });
       } catch (e) {
@@ -23,9 +21,10 @@ export default class extends Controller {
       }
     }
 
+    // add to change event listener to all inputs except player_name text field
     form.querySelectorAll('input:not(#player_name)').forEach( (input) => {
       input.addEventListener('change', (e) => {
-        sendData()
+        autoSubmit() // todo: handle the async submission
       })
     })
   }
