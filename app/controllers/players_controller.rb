@@ -1,3 +1,4 @@
+# todo: remove unnecessary formats
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[update destroy]
 

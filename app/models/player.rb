@@ -1,5 +1,5 @@
 class Player < ApplicationRecord
-  attribute :abstain, :boolean
+  attribute :abstain, :boolean # todo: explain this and why its needed
 
   belongs_to :room
 

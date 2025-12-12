@@ -1,5 +1,9 @@
 <li id="<%= dom_id player %>">
+  <%# todo: refactor how card-space and cards work (currently a "hidden card" is what %>
+  <%#       is visually being shown - when really it should be nothing, and the %>
+  <%#       card space is what should be the black outlined box %>
   <div class="card-space">
+    <%# todo: justify this design choice %>
     <% if player.room.revealed %>
       <%= render 'players/revealed_player', player: %>
     <% else %>

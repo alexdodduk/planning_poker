@@ -12,9 +12,11 @@
   <% end %>
 
   <div>
+    <%# todo: do we need this or can we get the room id from the player (if it is needed?) %>
     <%= form.hidden_field :room_id %>
   </div>
 
+  <%# todo: move these two forms to partials %>
   <fieldset>
     <% if player.id %>
       <legend>
@@ -53,8 +55,7 @@
       </div>
     <% end %>
 
-
-
+    <%# todo: and move this button into their respective form partials%>
     <div>
       <% submit_text = player.id ? "Set score" : "Join room" %>
       <%= form.submit submit_text, { hidden: player.id } %>

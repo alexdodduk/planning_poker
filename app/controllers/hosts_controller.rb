@@ -1,3 +1,4 @@
+# todo: is any of this necessary any more?
 class HostsController < ApplicationController
   before_action :set_host, only: %i[ show edit update destroy ]
 

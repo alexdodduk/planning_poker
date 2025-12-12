@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1 or /rooms/1.json
   def show
+    # todo: refactor to use a helper method to assign the host and player using the session
     @host = session[:host] == @room.id
     player = Player.find_by(id: session[:player_id])
     @player = player if player&.room_id == @room.id
@@ -27,6 +28,7 @@ class RoomsController < ApplicationController
 
   # DELETE /rooms/1 or /rooms/1.json
   def destroy
+    # todo: move broadcast to a callback in the Room model
     @room.broadcast_append_to "room", target: "room_#{@room.id}", partial: "rooms/redirect"
     @room.destroy!
   end
@@ -42,6 +44,7 @@ class RoomsController < ApplicationController
 
   def reset
     @room.update!(revealed: false)
+    # todo: move this to a callback in the Room model
     @room.players.each { |player| player.update!(score: nil, abstain: false) }
 
     respond_to do |format|
@@ -50,7 +53,7 @@ class RoomsController < ApplicationController
     end
   end
 
-  def game_ended
+  def game_ended # todo: rename to game_over
     redirect_to root_path, notice: "Game has ended, thanks for playing!"
   end
 
